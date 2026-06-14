@@ -14,9 +14,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm install
-      - run: npm run dist -- --win
+      - name: Install dependencies
+        run: npm install
+      - name: Build & package
+        run: npm run dist -- --win
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v4
@@ -33,9 +34,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm install
-      - run: npm run dist -- --mac
+      - name: Install dependencies
+        run: npm install
+      - name: Build & package
+        run: npm run dist -- --mac
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v4
@@ -52,9 +54,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm install
-      - run: npm run dist -- --linux
+      - name: Install dependencies
+        run: npm install
+      - name: Build & package
+        run: npm run dist -- --linux
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v4
