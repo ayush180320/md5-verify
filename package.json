@@ -1,0 +1,42 @@
+{
+  "name": "md5-verify",
+  "version": "1.0.0",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "dist": "vite build && electron-builder"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.0",
+    "hash-wasm": "^4.12.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0"
+  },
+  "build": {
+    "appId": "com.md5verify.app",
+    "productName": "MD5 Verify",
+    "asar": true,
+    "asarUnpack": ["dist/assets/*worker*"],
+    "directories": { "output": "release" },
+    "files": ["dist/**/*", "electron/main.js"],
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }]
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
