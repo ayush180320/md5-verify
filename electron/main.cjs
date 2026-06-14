@@ -12,14 +12,13 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
-      webSecurity: false,   // allows file:// Web Workers (WASM hashing)
+      webSecurity: false,
     },
   });
 
   win.loadFile(path.join(__dirname, "../dist/index.html"));
   win.setMenuBarVisibility(false);
 
-  // Open any link that tries to open a new window in the system browser
   win.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: "deny" };
