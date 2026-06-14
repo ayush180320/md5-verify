@@ -31,7 +31,7 @@
     "directories": { "output": "release" },
     "files": ["dist/**/*", "electron/main.cjs"],
     "win": {
-      "target": [{ "target": "nsis", "arch": ["x64"] }]
+      "target": [{ "target": "portable", "arch": ["x64"] }]
     },
     "mac": {
       "target": "dmg"
